@@ -1,0 +1,101 @@
+
+* {
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.my-grid {
+    display: grid;
+    grid-template-columns: 0.20fr 0.80fr 0.20fr;
+    grid-auto-rows: 0.07fr 0.93fr 0.10fr;
+
+    grid-template-areas: 
+        'head head head head'
+        'nav section section aside'
+        'footer footer footer footer';
+
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: stretch;
+    align-content: stretch;
+}
+
+.header {
+    grid-area: head;
+    text-align: center;
+    font-size: 46px;
+    margin: 5px;
+    padding: 10px;
+    max-height: 20vw;
+}
+
+.navigation {
+    grid-area: nav;
+    font-size: 12px;
+    margin: 6px;
+    padding: 4px;
+    max-width: 20vw;
+    min-width: 18vw;
+}
+
+.content {
+    grid-area: section;
+    font-size: 14px;
+    margin: 6px;
+    padding: 4px;
+}
+
+.content header {
+    width: 100%;
+    text-align: center;
+    margin: 4px;
+    padding: 2px;
+}
+
+.content article {
+    width: 100%;
+    margin: 4px;
+}
+
+.content footer {
+    width: 100%;
+    text-align: center;
+    margin: 4px;
+    
+}
+
+.sidebar {
+    grid-area: aside;
+    font-size: 10px;
+    margin: 6px;
+    padding: 4px;
+    max-width: 20vw;
+    min-width: 18vw;
+}
+
+.footer {
+    grid-area: footer;
+    text-align: center;
+    font-size: 10px;
+    margin: 10px;
+    padding: 4px;
+    max-height: 20vh;
+}
+
+*[class$="r"] {
+    background-color: magenta;
+
+    /*
+    * If the class attribute finishes with r (example header, footer), the background must be magenta.
+    */
+}
+
+
+*[class*="a"]:not([class$="r"]) {
+    background-color: blue;
+
+    /*
+    * If the class attribute contains an a (example nav) but do NOT finish with r, the background must be blue.
+    */
+}
+
