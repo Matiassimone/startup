@@ -1,0 +1,157 @@
+body {
+    max-width: 1600px;
+    margin: 0 auto;
+    font-family: Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+    font-family: "trench";
+    font-style: normal;
+    font-weight: normal;
+    src: local("../fonts/trench.ttf"), url("../fonts/trench.woff") format("woff"), url("../fonts/trench.ttf") format("truetype");
+}
+
+header {
+    font-family: trench;
+}
+
+h1 {
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 3em;
+    line-height: 1.3em;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    p {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    p {
+        font-size: 1em;
+    }
+}
+
+.footer {
+
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+    font-size: 2em;
+    line-height: 1.3em;
+    font-family: trench
+}
+
+/*________________________________________________________________________________________________
+Effect Image*/
+
+.one-third {
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+
+    height: auto;
+    position: relative;
+    float: left;
+}
+
+.one-third:last-of-type {
+    margin-right: 0;
+}
+
+.screen {
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    z-index: 1000;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    overflow: hidden;
+}
+
+.screen:hover {
+    opacity: 1
+}
+
+.title {
+    color: #fff;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-left: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .more {
+        font-size: 1.5em;
+        color: rgb(196, 196, 196);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .more {
+        font-size: 0.80em;
+        color: rgb(196, 196, 196);
+    }
+}
+
+.screen:hover .title {
+    margin-left: 0;
+}
+
+.screen.fade-in .title {
+    margin-left: 0;
+}
+
+.image-content {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    margin: 0px;
+}
+
+/*________________________________________________________________________________________________
+Menu*/
+
+.menu-bar {
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 2em;
+    line-height: 1.3em;
+    font-family: trench
+}
+
+.bt-menu {
+    text-decoration: none;
+    display: block;
+    display: inline-block;
+    padding: 0.1em;
+}
+
+/*________________________________________________________________________________________________*/
