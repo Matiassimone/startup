@@ -21,9 +21,9 @@
 
     <main>
         <section class="col-6-row-1" hidden id="sectionOnLoad">
-            <h2>Hello Word!</h2>
+            <h2 id="nextTo">Hello Word!</h2>
         </section>
-        <button class="col-6-row-1" onclick="alertCall()">Random Button</button>
+        <button class="col-6-row-1" onclick="xhrRequestAsync({method: 'POST', url: 'http://api.icndb.com/jokes/random', user: 'null', password: 'null'}, 'nextTo')"> Joke </button>
     </main>
 
     <footer class="footer">
@@ -33,4 +33,5 @@
     <!--Scripts-->
     <script src="js/scripts.js"></script>
 </body>
+
 </html>
