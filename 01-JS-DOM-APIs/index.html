@@ -21,10 +21,26 @@
 
     <main>
         <section class="col-6-row-1" hidden id="sectionOnLoad">
-            <h2 id="nextTo">Hello Word!</h2>
+            <h2>Hello Word!</h2>
+            <form id="seekForm">
+                <label for="search">Search: </label>
+                <input type="text" placeholder="Search.." name="search">
+                <button type="button" onclick="seek()">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
         </section>
-        <button class="col-6-row-1" onclick="xhrRequestAsync({method: 'POST', url: 'http://api.icndb.com/jokes/random', user: 'null', password: 'null'}, 'nextTo')"> Joke </button>
+        <button class="col-6-row-1" onclick="xhrRequestAsync({method: 'GET', url: 'https://api.github.com/search/repositories', user: 'null', password: 'null', params: 'q=JavaScript'}, 'seekForm')">
+            Repositories List </button>
     </main>
+
+    <!--Modal-->
+    <div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close" onclick="CloseModal()">X</a>
+            <h2 id="coincidences">Coincidences: </h2>
+            <div id="insideModal"></div>
+        </div>
+    </div>
 
     <footer class="footer">
         Matias Simone || matiassimone.d@gmail.com || 2018 BootcampUI
