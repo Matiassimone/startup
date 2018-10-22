@@ -30,10 +30,18 @@ function handleResponseJoke(response, after) {
 //Handle response from https://api.github.com/search/repositories
 function handleResponseRepositories(response, after){
 
+    if (document.getElementById("repositoriesList")) {
+        
+        let father = document.getElementById("results");
+        
+        father.innerHTML='<div id="inside"></div>';
+    } 
+    
     let data = response['items'];
 
     let ul = document.createElement('ul');
-    ul.id = "repositoriesList"
+    ul.id = "repositoriesList";
+
     this.insertAfter(ul, after);
 
     Object.keys(data).forEach(function(element){
@@ -48,6 +56,7 @@ function handleResponseRepositories(response, after){
         let separatingElement = document.createElement('hr');
         id.appendChild(separatingElement);
     }) 
+    
 }
 
 function handleError(error, after) {
@@ -78,7 +87,7 @@ function xhrRequestAsync(options, within) {
     let rtn = new Promise(function (resolve, reject) {
 
         let xhr = new XMLHttpRequest();
-        xhr.open(options.method, options.url+"?"+options.params, true, options.user, options.password);
+        xhr.open(options.method, options.url+"?q="+options.params, true, options.user, options.password);
 
         xhr.onload = function() {
             if (this.status >= 200 && this.status < 300) { //Promise Succes
@@ -105,6 +114,17 @@ function xhrRequestAsync(options, within) {
         this.handleResponseRepositories(jsonResponse, within); //Change this line to differents Handles.
     })
     rtn.catch((error) => this.handleError(error, within))
+}
+
+function seekRepositories() {
+    let toSeek = document.getElementById("seekRepositories").elements["searchRepositories"].value;
+
+    if (toSeek == "" || toSeek === " ") {
+        alert("Please, write in the input before submit.");
+
+    } else {
+        this.xhrRequestAsync({method: 'GET', url: 'https://api.github.com/search/repositories', user: 'null', password: 'null', params: toSeek}, 'inside');
+    }
 }
 
 function seek() {
