@@ -173,6 +173,40 @@ function showModal() {
     document.getElementById('openModal').style.display = 'block';
 }
   
-  function CloseModal() {
+function CloseModal() {
     document.getElementById('openModal').style.display = 'none';
+}
+
+function matrixDraw(matrix, within) {
+
+    //Example to test the function.
+    let a = [];
+    let b = ['1', '2', '3'];
+    let c = ['1', '2', '3'];
+    let d = ['1', '2', '3'];
+
+    a[0]=b;
+    a[1]=c;
+    a[2]=d;
+    matrix = a;
+    within = "matrixStructure";
+
+    let table = document.createElement('table');
+    
+    for(let row of matrix) {
+
+        let tr = document.createElement('tr');
+        table.appendChild(tr);
+
+        for(let col of row) {
+
+            let td = document.createElement('td');
+            let textTd = document.createTextNode(col);
+            td.appendChild(textTd);
+
+            tr.appendChild(td);
+        }
+    }
+    table.style.border = "1px solid black";
+    this.insertAfter(table, within);
 }
