@@ -6,9 +6,6 @@
 
 .my-grid {
     display: grid;
-    grid-template-columns: 0.20fr 0.80fr 0.20fr;
-    grid-auto-rows: 0.07fr 0.93fr 0.10fr;
-
     grid-template-areas: 
         'head head head head'
         'nav section section aside'
