@@ -183,18 +183,6 @@ function CloseModal() {
 
 function matrixDraw(matrix, within) {
 
-    //Example to test the function.
-    let a = [];
-    let b = ['1', '2', '3'];
-    let c = ['1', '2', '3'];
-    let d = ['1', '2', '3'];
-
-    a[0]=b;
-    a[1]=c;
-    a[2]=d;
-    matrix = a;
-    within = "matrixStructure";
-
     let table = document.createElement('table');
     
     for(let row of matrix) {
@@ -211,6 +199,19 @@ function matrixDraw(matrix, within) {
             tr.appendChild(td);
         }
     }
-
     this.insertAfter(table, within);
+}
+
+function drawSampleMatrix(within) {
+
+    let matrixSample = [];
+    let col_1 = ['1', '2', '3'];
+    let col_2 = ['1', '2', '3'];
+    let col_3 = ['1', '2', '3'];
+
+    matrixSample[0]=col_1;
+    matrixSample[1]=col_2;
+    matrixSample[2]=col_3;
+
+    this.matrixDraw(matrixSample, within);
 }
