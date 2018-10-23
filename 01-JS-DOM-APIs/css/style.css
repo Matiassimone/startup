@@ -24,6 +24,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+li {
+	margin: 2rem;
+}
+
 h1 {
     border-collapse: collapse;
     padding: 0;
@@ -40,13 +44,15 @@ h2 {
 
 @media only screen and (max-width: 600px) {
     p {
-        font-size: 2em;
+		font-size: 2em;
+		margin: 2rem;
     }
 }
 
 @media only screen and (min-width: 600px) {
     p {
-        font-size: 1em;
+		font-size: 1em;
+		margin: 2rem;
     }
 }
 

@@ -20,11 +20,9 @@ function handleResponseJoke(response, after) {
     let data = response['value'];
 
     let newElement = document.createElement('p');
-    let separatingElement = document.createElement('hr');
     newElement.textContent = data["joke"];
 
     this.insertAfter(newElement, after);
-    this.insertAfter(separatingElement, after);
 }
 
 //Handle response from https://api.github.com/search/repositories
@@ -52,9 +50,6 @@ function handleResponseRepositories(response, after){
 
         let id = document.getElementById("repositoriesList");
         id.appendChild(li);
-
-        let separatingElement = document.createElement('hr');
-        id.appendChild(separatingElement);
     }) 
     
 }
@@ -62,12 +57,10 @@ function handleResponseRepositories(response, after){
 function handleError(error, after, errorColor) {
 
     let newElement = document.createElement('p');
-    let separatingElement = document.createElement('hr');
     newElement.textContent = "ERROR:" + error["status"] + " " + error["statusText"];
     newElement.style.color = errorColor;
 
     this.insertAfter(newElement, after);
-    this.insertAfter(separatingElement, after);
 }
 
 function insertAfter(newElement, after) {
@@ -157,14 +150,12 @@ function seek() {
 function handleSeek(data) {
 
     let newElement = document.createElement('p');
-    let separatingElement = document.createElement('hr');
     newElement.textContent = data;
     newElement.style.color = "#008000";
 
     let id = document.getElementById('insideModal');
 
     id.appendChild(newElement);
-    id.appendChild(separatingElement);
 
     this.showModal();
 }
