@@ -15,43 +15,64 @@ function fetchAsync(url, within) {
 }
 
 //Handle response from http://api.icndb.com/jokes/random
-function handleResponseJoke(response, after) {
+/**
+ * @param {method: String, url: String, user: String, password: String, params: String} options 
+ * @param {"id HTML, to insert after, the new element"} after 
+ */
+function handleResponseJoke(options, after) {
+
+    let rtn = this.xhrRequestAsync(options);
+
+    rtn.then((response) => {
+        let jsonResponse = JSON.parse(response);
     
-    let data = response['value'];
+        let data = jsonResponse['value'];
 
-    let newElement = document.createElement('p');
-    newElement.textContent = data["joke"];
+        let newElement = document.createElement('p');
+        newElement.textContent = data["joke"];
 
-    this.insertAfter(newElement, after);
+        this.insertAfter(newElement, after);
+    })
+    rtn.catch((error) => this.handleError(error, within, "#C00"))
 }
 
 //Handle response from https://api.github.com/search/repositories
-function handleResponseRepositories(response, after){
+/**
+ * @param {method: String, url: String, user: String, password: String, params: String} options 
+ * @param {"id HTML, to insert after, the new element"} after 
+ */
+function handleResponseRepositories(options, after){
 
-    if (document.getElementById("repositoriesList")) {
+    let rtn = this.xhrRequestAsync(options);
+
+    rtn.then((response) => {
+        let jsonResponse = JSON.parse(response);
         
-        let father = document.getElementById("results");
+        if (document.getElementById("repositoriesList")) {
         
-        father.innerHTML='<div id="inside"></div>';
-    } 
+            let father = document.getElementById("results");
+            
+            father.innerHTML='<div id="inside"></div>';
+        } 
+        
+        let data = jsonResponse['items'];
     
-    let data = response['items'];
-
-    let ul = document.createElement('ul');
-    ul.id = "repositoriesList";
-
-    this.insertAfter(ul, after);
-
-    Object.keys(data).forEach(function(element){
-
-        let li = document.createElement('li');
-        let text = document.createTextNode("Id: " +  data[element]['id'] + " | OwnerName: " +  data[element]['owner']['login'] + " | Url: " + data[element]['owner']['url']);
-        li.appendChild(text);
-
-        let id = document.getElementById("repositoriesList");
-        id.appendChild(li);
-    }) 
+        let ul = document.createElement('ul');
+        ul.id = "repositoriesList";
     
+        this.insertAfter(ul, after);
+    
+        Object.keys(data).forEach(function(element){
+    
+            let li = document.createElement('li');
+            let text = document.createTextNode("Id: " +  data[element]['id'] + " | OwnerName: " +  data[element]['owner']['login'] + " | Url: " + data[element]['owner']['url']);
+            li.appendChild(text);
+    
+            let id = document.getElementById("repositoriesList");
+            id.appendChild(li);
+        }) 
+    })
+    rtn.catch((error) => this.handleError(error, within, "#C00"))
 }
 
 function handleError(error, after, errorColor) {
@@ -71,11 +92,7 @@ function insertAfter(newElement, after) {
     parent.insertBefore(newElement, child.nextSibling);
 }
 
-/**
- * @param {method: String, url: String, user: String, password: String, params: String} options 
- * @param {"id HTML, to insert after, the new element"} within 
- */
-function xhrRequestAsync(options, within) {
+function xhrRequestAsync(options) {
 
     let rtn = new Promise(function (resolve, reject) {
 
@@ -102,11 +119,7 @@ function xhrRequestAsync(options, within) {
 
         xhr.send();
     });
-    rtn.then((response) => {
-        let jsonResponse = JSON.parse(response);
-        this.handleResponseRepositories(jsonResponse, within); //Change this line to differents Handles.
-    })
-    rtn.catch((error) => this.handleError(error, within, "#C00"))
+    return rtn;
 }
 
 function seekRepositories() {
@@ -116,7 +129,7 @@ function seekRepositories() {
         alert("Please, write in the input before submit.");
 
     } else {
-        this.xhrRequestAsync({method: 'GET', url: 'https://api.github.com/search/repositories', user: 'null', password: 'null', params: toSeek}, 'inside');
+        this.handleResponseRepositories({method: 'GET', url: 'https://api.github.com/search/repositories', user: 'null', password: 'null', params: toSeek}, 'inside');
     }
 }
 
