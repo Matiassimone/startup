@@ -141,17 +141,17 @@ function seek() {
 
             if(items[element].innerText.includes(toSeek)) {
 
-                this.handleSeek(items[element].innerText);
+                this.handleSeek(items[element].innerText, "#008000");
             }
         })
     }
 }
 
-function handleSeek(data) {
+function handleSeek(data, textColor) {
 
     let newElement = document.createElement('p');
     newElement.textContent = data;
-    newElement.style.color = "#008000";
+    newElement.style.color = textColor;
 
     let id = document.getElementById('insideModal');
 
@@ -198,6 +198,6 @@ function matrixDraw(matrix, within) {
             tr.appendChild(td);
         }
     }
-    table.style.border = "1px solid black";
+
     this.insertAfter(table, within);
 }

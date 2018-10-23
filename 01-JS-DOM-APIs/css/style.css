@@ -28,6 +28,10 @@ li {
 	margin: 2rem;
 }
 
+table {
+	border: 1px solid black;
+}
+
 h1 {
     border-collapse: collapse;
     padding: 0;
