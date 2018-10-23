@@ -59,12 +59,12 @@ function handleResponseRepositories(response, after){
     
 }
 
-function handleError(error, after) {
+function handleError(error, after, errorColor) {
 
     let newElement = document.createElement('p');
     let separatingElement = document.createElement('hr');
     newElement.textContent = "ERROR:" + error["status"] + " " + error["statusText"];
-    newElement.style.color = "#C00";
+    newElement.style.color = errorColor;
 
     this.insertAfter(newElement, after);
     this.insertAfter(separatingElement, after);
@@ -113,7 +113,7 @@ function xhrRequestAsync(options, within) {
         let jsonResponse = JSON.parse(response);
         this.handleResponseRepositories(jsonResponse, within); //Change this line to differents Handles.
     })
-    rtn.catch((error) => this.handleError(error, within))
+    rtn.catch((error) => this.handleError(error, within, "#C00"))
 }
 
 function seekRepositories() {
