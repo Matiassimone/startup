@@ -112,7 +112,7 @@ function xhrRequestAsync(options, within) {
 function seekRepositories() {
     let toSeek = document.getElementById("seekRepositories").elements["searchRepositories"].value;
 
-    if (toSeek == "" || toSeek === " ") {
+    if (toSeek === "" || toSeek === " ") {
         alert("Please, write in the input before submit.");
 
     } else {
@@ -126,7 +126,7 @@ function seek() {
     if (document.getElementById("repositoriesList") == undefined) {
         alert("Don't exists list of repositories to search.");
 
-    } else if (toSeek == "" || toSeek === " ") {
+    } else if (toSeek === "" || toSeek === " ") {
         alert("Please, write in the input before submit.");
 
     } else {
