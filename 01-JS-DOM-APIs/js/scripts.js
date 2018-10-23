@@ -33,7 +33,7 @@ function handleResponseJoke(options, after) {
 
         this.insertAfter(newElement, after);
     })
-    rtn.catch((error) => this.handleError(error, within, "#C00"))
+    rtn.catch((error) => this.handleError(error, within))
 }
 
 //Handle response from https://api.github.com/search/repositories
@@ -72,14 +72,14 @@ function handleResponseRepositories(options, after){
             id.appendChild(li);
         }) 
     })
-    rtn.catch((error) => this.handleError(error, within, "#C00"))
+    rtn.catch((error) => this.handleError(error, within))
 }
 
-function handleError(error, after, errorColor) {
+function handleError(error, after) {
 
     let newElement = document.createElement('p');
     newElement.textContent = "ERROR:" + error["status"] + " " + error["statusText"];
-    newElement.style.color = errorColor;
+    newElement.classList.add("colorTextRed");
 
     this.insertAfter(newElement, after);
 }
@@ -154,31 +154,38 @@ function seek() {
 
             if(items[element].innerText.includes(toSeek)) {
 
-                this.handleSeek(items[element].innerText, "#008000");
+                this.handleSeek(items[element].innerText);
             }
         })
+
+        this.showModal();
     }
 }
 
-function handleSeek(data, textColor) {
+function handleSeek(data) {
 
     let newElement = document.createElement('p');
     newElement.textContent = data;
-    newElement.style.color = textColor;
+    newElement.classList.add("colorTextGreen");
 
     let id = document.getElementById('insideModal');
 
     id.appendChild(newElement);
-
-    this.showModal();
 }
 
 function showModal() {
-    document.getElementById('openModal').style.display = 'block';
+    let existUnseen = document.getElementById("openModal").classList.contains("unseen");
+
+    if (existUnseen) {
+        document.getElementById("openModal").classList.remove("unseen");
+    }
+
+    document.getElementById('openModal').classList.toggle("visible");
 }
   
 function CloseModal() {
-    document.getElementById('openModal').style.display = 'none';
+    document.getElementById('openModal').classList.toggle("visible");
+    document.getElementById('openModal').classList.toggle("unseen");
 }
 
 function matrixDraw(matrix, within) {
