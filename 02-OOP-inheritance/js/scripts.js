@@ -29,7 +29,18 @@ class EventEmitter {
     }
 }
 
-class Movie extends EventEmitter {
+const MixinSocial = Superclass => class extends Superclass{
+
+    share(friendName) {
+        this.logger.log(friendName + " share " + this.title);
+    }
+
+    like(friendName) {
+        this.logger.log(friendName + " likes " + this.title);
+    }
+};
+
+class Movie extends MixinSocial( EventEmitter ) {
 
     constructor(name, year, duration) {
         super();
@@ -38,22 +49,22 @@ class Movie extends EventEmitter {
         this.duration = duration;
         this.movieCast = [];
 
-        const logger = new Logger();
+        this.logger = new Logger();
 
         super.on("play-movie", data => {
-            logger.log(data);
+            this.logger.log(data);
         });
 
         super.on("pause-movie", data => {
-            logger.log(data);
+            this.logger.log(data);
         });
 
         super.on("resume-movie", data => {
-            logger.log(data);
+            this.logger.log(data);
         });
 
         super.on("cast-movie", data => {
-            logger.log(data);
+            this.logger.log(data);
         });
     }
 
@@ -80,11 +91,11 @@ class Movie extends EventEmitter {
     }
 
     showCast(){
-        
+
         let actors = "";
 
         this.movieCast.forEach((actor) => {
-            actors = actors + " - " + actor.name + " - ";
+            actors = actors + " -  " + actor.name + " -  ";
         })
         super.emit("cast-movie", (actors) );  
     }
@@ -113,7 +124,6 @@ class Logger extends EventEmitter {
         this.pSelector.innerHTML = info;
     }
 }
-
 
 const terminator = new Movie('Terminator I', 1985, 60);
 
