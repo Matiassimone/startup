@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Topic 1 - JavaScript and DOM APIs</title>
+    <meta name="description" content="JS and DOM APIs">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="fadeIn()">
+    <header>
+        <h1>Topic 1 - JavaScript and DOM APIs</h1>
+    </header>
+
+    <main>
+        <section class="col-6-row-1" hidden id="sectionOnLoad">
+            <h2>Hello Word!</h2>
+            <!--Seek inside the results-->
+            <form id="seekForm">
+                <label for="search">Search in the Results: </label>
+                <input type="text" placeholder="Search.." name="search" id="search" required>
+                <button type="button" onclick="seek()">Results Search</button>
+                <button type="reset">Reset</button>
+            </form>
+            <br><br>
+            <!--Seek diferents Repositories-->
+            <form id="seekRepositories">
+                <label for="searchRepositories">Search Repositories: </label>
+                <input type="text" placeholder="Search Repositories.." name="searchRepositories" id="searchRepositories" required>
+                <button type="button" onclick="seekRepositories()">
+                    Repositories Search
+                </button>
+                <button type="reset">Reset</button>
+            </form>
+        </section>
+        <br><br>
+        <div id="results" class="col-6-row-1">
+            <div id="inside"></div>
+        </div>
+    </main>
+
+    <!--Modal-->
+    <div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close" onclick="CloseModal()">X</a>
+            <h2 id="coincidences">Coincidences: </h2>
+            <div id="insideModal"></div>
+        </div>
+    </div>
+
+    <div id="matrixStructure">
+        <button onclick="drawSampleMatrix('matrixStructure')">Test Matrix function</button>
+    </div>
+
+    <footer class="footer">
+        Matias Simone || matiassimone.d@gmail.com || 2018 BootcampUI
+    </footer>
+
+    <!--Scripts-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
