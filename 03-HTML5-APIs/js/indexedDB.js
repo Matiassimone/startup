@@ -1,7 +1,3 @@
-function clearContent(id) {
-    document.getElementById(id).innerText = '';
-}
-
 function indexedDB_Suported() {
     let isSuported = false;
 
@@ -33,7 +29,9 @@ function indexedDB_CreateDB(dbName, nameObjectStore) {
 }
 
 
-function indexedDB_Save(dbName, nameObjectStore, toSave) {
+function indexedDB_Save(dbName, nameObjectStore, idToSave) {
+
+    let toSave = document.getElementById(idToSave).value;
 
     if (indexedDB_Suported) {
 
@@ -96,43 +94,3 @@ function indexedDB_Clear(dbName, nameObjectStore) {
 function handleError(err) {
     console.log("Database error: " + err);
 }
-
-function localStorage_Save(keyName, toSave) {
-    localStorage.setItem(keyName, JSON.stringify(toSave));
-    console.log('The element "' + toSave + '" has saved correctly in LocalStorage.');
-}
-
-function localStorage_Clear(keyName) {
-    localStorage.removeItem(keyName);
-    console.log('The LocalStorage has erased correctly.');
-}
-
-
-function handlerDrop(event, idToPut) {
-    
-    let htmlPut = document.getElementById(idToPut);
-    event.preventDefault();
-
-    let file = event.dataTransfer.files[0];
-    let reader = new FileReader();
-    
-    reader.readAsText(file);
-
-    reader.onload = event => {
-        if(/text/.test(file.type)){ 
-            htmlPut.innerText = event.target.result;
-        }else{
-            console.log("Only suport files based in text"); 
-        }
-    }
-    removeData(event);
-}
-
-function removeData (event) {
-    if (event.dataTransfer.items) {
-        event.dataTransfer.items.clear();
-      } else {
-        event.dataTransfer.clearData();
-      }
-}
-

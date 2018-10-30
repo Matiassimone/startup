@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
 <body>
@@ -27,13 +29,13 @@
             <textarea name="bio" id="bio" ondrop="handlerDrop(event, 'bio')" cols="30" rows="10"></textarea>
             <br>
             <div class="col-3-row-1">
-                <button onclick="indexedDB_Save('BD_Bio', 'bio', document.getElementById('bio').value), clearContent('bio')">Save
+                <button onclick="indexedDB_Save('BD_Bio', 'Biography', 'bio'); clearContent('bio');">Save
                     in IndexedDB</button>
-                <button onclick="indexedDB_Clear('BD_Bio', 'bio')">Clear IndexedDB</button>
+                <button onclick="indexedDB_Clear('BD_Bio', 'Biography')">Clear IndexedDB</button>
             </div>
             <br>
             <div class="col-3-row-1">
-                <button onclick="localStorage_Save('BD_Bio', document.getElementById('bio').value), clearContent('bio')">Save
+                <button onclick="localStorage_Save('BD_Bio', 'bio'); clearContent('bio');">Save
                     in Local Storage</button>
                 <button onclick="localStorage_Clear('BD_Bio')">Clear Local Storage</button>
             </div>
@@ -47,7 +49,10 @@
         Matias Simone || matiassimone.d@gmail.com || 2018 BootcampUI
     </footer>
 
-    <script src="js/scripts.js"></script>
+    <script src="js/clearContent.js"></script>
+    <script src="js/indexedDB.js"></script>
+    <script src="js/localStorage.js"></script>
+    <script src="js/dragAndDrop.js"></script>
 </body>
 
 </html>
