@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>03-HTML5-APIs</title>
+    <meta name="description" content="03-HTML5-APIs">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>03-HTML5-APIs</h1>
+    </header>
+
+    <main>
+        <br><br>
+        <div class="col-6-row-1" id="textBio">
+            <label for="bio">Biography</label>
+            <br><br>
+            <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+            <br>
+            <div class="col-3-row-1">
+                <button onclick="indexedDB_Save('BD_Bio', 'bio', document.getElementById('bio').value), clearContent('bio')">Save
+                    in IndexedDB</button>
+                <button onclick="indexedDB_Clear('BD_Bio', 'bio')">Clear IndexedDB</button>
+            </div>
+            <br>
+            <div class="col-3-row-1">
+                <button onclick="localStorage_Save('BD_Bio', document.getElementById('bio').value), clearContent('bio')">Save
+                    in Local Storage</button>
+                <button onclick="localStorage_Clear('BD_Bio')">Clear Local Storage</button>
+            </div>
+            <br>
+        </div>
+
+    </main>
+    <footer class="footer">
+        Matias Simone || matiassimone.d@gmail.com || 2018 BootcampUI
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
