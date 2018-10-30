@@ -23,7 +23,7 @@
 
     <main>
         <br><br>
-        <div class="col-6-row-1" id="textBio">
+        <div class="col-6-row-1" id="textCenter">
             <label for="bio">Biography</label>
             <br><br>
             <textarea name="bio" id="bio" ondrop="handlerDrop(event, 'bio')" cols="30" rows="10"></textarea>
@@ -39,11 +39,21 @@
                     in Local Storage</button>
                 <button onclick="localStorage_Clear('BD_Bio')">Clear Local Storage</button>
             </div>
-            <p>Write or drop a file text in the Text Area.</p>
+            <p>Write or drop a text file in the Text Area Green.</p>
             <p>This Text Area only suport files based in text, for example (text/plain , text/html , text/css)</p>
             <br>
         </div>
-
+        <br><br>
+        <div class="col-6-row-1" id="textCenter">
+            <label for="socket">Send using socket to Biography</label>
+            <br><br>
+            <textarea name="socket" id="socket" ondrop="handlerDrop(event, 'socket')" cols="30" rows="10"></textarea>
+            <br>
+            <button onclick=" testWebSocket('wss://echo.websocket.org/', 'bio', 'socket'); clearContent('socket');">Send using socket</button>
+            <p>Write or drop a text file in the Text Area Red.</p>
+            <p>This Text Area only suport files based in text, for example (text/plain , text/html , text/css)</p>
+            <br>
+        </div>
     </main>
     <footer class="footer">
         Matias Simone || matiassimone.d@gmail.com || 2018 BootcampUI
@@ -53,6 +63,7 @@
     <script src="js/indexedDB.js"></script>
     <script src="js/localStorage.js"></script>
     <script src="js/dragAndDrop.js"></script>
+    <script src="js/socket.js"></script>
 </body>
 
 </html>

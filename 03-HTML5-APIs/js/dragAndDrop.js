@@ -10,7 +10,7 @@ function handlerDrop(event, idToPut) {
 
     reader.onload = event => {
         if(/text/.test(file.type)){ 
-            htmlPut.innerText = event.target.result;
+            htmlPut.value = event.target.result;
         }else{
             console.log("Only suport files based in text"); 
         }
