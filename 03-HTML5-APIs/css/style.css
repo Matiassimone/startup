@@ -10,6 +10,10 @@ body {
     text-align: center;
 }
 
+#bio {
+    border: 5px solid green;
+}
+
 h1 {
     border-collapse: collapse;
     padding: 0;

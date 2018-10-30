@@ -24,7 +24,7 @@
         <div class="col-6-row-1" id="textBio">
             <label for="bio">Biography</label>
             <br><br>
-            <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+            <textarea name="bio" id="bio" ondrop="handlerDrop(event, 'bio')" cols="30" rows="10"></textarea>
             <br>
             <div class="col-3-row-1">
                 <button onclick="indexedDB_Save('BD_Bio', 'bio', document.getElementById('bio').value), clearContent('bio')">Save
@@ -37,6 +37,8 @@
                     in Local Storage</button>
                 <button onclick="localStorage_Clear('BD_Bio')">Clear Local Storage</button>
             </div>
+            <p>Write or drop a file text in the Text Area.</p>
+            <p>This Text Area only suport files based in text, for example (text/plain , text/html , text/css)</p>
             <br>
         </div>
 
