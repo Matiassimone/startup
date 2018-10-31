@@ -12,15 +12,18 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/style.css">
-
-
 </head>
 
 <body>
     <header>
         <h1>03-HTML5-APIs</h1>
     </header>
-
+    <br>
+    <div class="col-6-row-1" id="textCenter">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <image xlink:href="http://k45.kn3.net/212EBBFDA.png"/>
+        </svg>
+    </div>
     <main>
         <br><br>
         <div class="col-6-row-1" id="textCenter">
@@ -49,7 +52,8 @@
             <br><br>
             <textarea name="socket" id="socket" ondrop="handlerDrop(event, 'socket')" cols="30" rows="10"></textarea>
             <br>
-            <button onclick=" testWebSocket('wss://echo.websocket.org/', 'bio', 'socket'); clearContent('socket');">Send using socket</button>
+            <button onclick=" testWebSocket('wss://echo.websocket.org/', 'bio', 'socket'); clearContent('socket');">Send
+                using socket</button>
             <p>Write or drop a text file in the Text Area Red.</p>
             <p>This Text Area only suport files based in text, for example (text/plain , text/html , text/css)</p>
             <br>
