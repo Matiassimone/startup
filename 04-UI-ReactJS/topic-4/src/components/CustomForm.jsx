@@ -43,25 +43,32 @@ class CustomForm extends Component {
             
             this.props.onErrors(errorsList);  
             this.props.onAddMovie(movie);
+            document.getElementById("formMovie").reset();
         }
     }
 
     handleInputNumberChange = (event) => {
         if (event.target.name === "year") {
-            this.setState({year: event.target.value});
+            this.setState({
+                year: event.target.value
+            });
         } else {
-            this.setState({duration: event.target.value});
+            this.setState({
+                duration: event.target.value
+            });
         }
     }
 
 
     handleInputTextChange = (event) => {
-        this.setState({title: event.target.value});
+        this.setState({
+            title: event.target.value
+        });
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className="simpleForm">
+            <form onSubmit={this.handleSubmit} id="formMovie" className="simpleForm">
                 <div className="displayGrid">
                     <h3>Add Movie</h3>
                     <div className="col-1-row-1">
@@ -76,7 +83,6 @@ class CustomForm extends Component {
                         <label htmlFor="duration">Duration : </label>
                         <input type="number" name="duration" className="simpleInput" placeholder= " 160 " min="1" value={this.props.duration} onChange={this.handleInputNumberChange} required/>
                     </div>  
-
                     <button className="simpleBotton">Add</button>
                 </div>
             </form>

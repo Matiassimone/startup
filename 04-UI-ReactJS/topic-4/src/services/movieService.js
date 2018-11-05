@@ -1,46 +1,56 @@
 export default {
 
-    getAll() {
-      return JSON.parse(localStorage.getItem("movies")) || [];
-    },
-  
-    saveAll(movies) {
-      localStorage.setItem("movies", JSON.stringify(movies));
-    },
-  
-    change(newMovie) {
-  
-      let movies = this.getAll();
-      
-      let toChange = movies.find(movie => movie.id === newMovie.id);
-      let idx = movies.indexOf(toChange);
-      movies[idx] = newMovie;
-  
-      this.saveAll(movies);
-    },
-    
-    nextId() {
-      let movies = this.getAll();
-      let idx = 0;
+  getAll() {
+    return JSON.parse(localStorage.getItem("movies")) || [];
+  },
 
-      for(let key of movies.keys()) {
-        idx = (key + 1);
-      }
+  saveAll(movies) {
+    localStorage.setItem("movies", JSON.stringify(movies));
+  },
 
-      return idx;
-    },
+  delete(id) {
+    let movies = this.getAll();
 
-    save(title, year, duration, id) {
-      let movies = this.getAll();
+    let toDelete = movies.find(movie => movie.id === id);
+    movies.splice(movies.indexOf(toDelete), 1);
 
-      let newMovie = {
-        title: title,
-        year: year,
-        duration: duration,
-        id: id
-      } 
+    this.saveAll(movies);
+  },
 
-      movies.push(newMovie);
-      this.saveAll(movies);
+  change(newMovie) {
+
+    let movies = this.getAll();
+
+    let toChange = movies.find(movie => movie.id === newMovie.id);
+    let idx = movies.indexOf(toChange);
+    movies[idx] = newMovie;
+
+    this.saveAll(movies);
+  },
+
+  nextId() {
+    let movies = this.getAll();
+    let idx = 0;
+
+    if (movies.length > 0) {
+      idx = (movies[movies.length-1].id) + 1 ;
     }
+
+    return idx;
+  },
+
+  save(title, year, duration, id) {
+    let movies = this.getAll();
+
+    let newMovie = {
+      title: title,
+      year: year,
+      duration: duration,
+      id: id
+    }
+
+    movies.push(newMovie);
+    this.saveAll(movies);
   }
+
+}

@@ -42,12 +42,30 @@ class HeadMovies extends Component {
         return listErrors;
     }
 
+    handleEdit = (id) => {
+        
+        return id;
+    }
+
+    handleDelete = (id) => {
+        movieService.delete(id);
+        this.setState((state) => ({ movieList: movieService.getAll() }));
+    }
+
     render() {
         return (
             <div>
                 <CustomErrors errors={this.handleErrorsChange}></CustomErrors>
-                <CustomForm onAddMovie={this.handleAddMovie} onErrors={this.handleErrors}></CustomForm>
-                <ListMovies movieList={this.handleMovieChange}></ListMovies>
+                <CustomForm 
+                onAddMovie={this.handleAddMovie} 
+                onErrors={this.handleErrors}
+                onEdit={this.handleEdit}>
+                </CustomForm>
+                <ListMovies 
+                movieList={this.handleMovieChange} 
+                onEdit={this.handleEdit} 
+                onDelete={this.handleDelete}>
+                </ListMovies>
             </div>
         );
     }
