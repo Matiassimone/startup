@@ -1,0 +1,39 @@
+.simpleForm {
+    text-align: left;
+    border-radius: 10px;
+    background-color: #282c34;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 50px;
+    padding: 10px;
+}
+
+.simpleInput {
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 5px;
+}
+
+.simpleBotton {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, .3);
+    color: #fff;
+    font-size: 20px;
+    line-height: 48px;
+    text-align: center;
+    background: #0066A2;
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+}
+
+.simpleBotton:hover {
+    background: rgb(60, 157, 60);
+    cursor: pointer;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
