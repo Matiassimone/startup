@@ -5,78 +5,41 @@ import movieService from '../services/movieService';
 import CustomErrors from './FormErrors';
 import './modalForm.css';
 
+import Store from '../Store';
+
 class HeadMovies extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = ({
-            movieList: [],
-            errors: [],
-            movieEdit: []
+            movieEdit: [],
+            errors: []
         })
+
+        Store.subscribe(() => {
+            document.getElementById("openModal").style.display = Store.getState().modalStatus;
+
+            this.setState({
+                movieEdit: Store.getState().movieEdit,
+                errors: Store.getState().errors
+            });
+        });
     }
 
-    componentDidMount() {
-        let movies = movieService.getAll();
-        this.setState({movieList: movies});
-    }
-
-
-    handleAddMovie = (newMovie) => {
-        let movieList = this.state.movieList;
-        movieList.push(newMovie);
-
-        this.setState({movieList : movieList});
-    }
-
-    handleMovieChange = () => {
-        let list =  this.state.movieList;
-        return list;
-    }
-
-    handleErrors = (errors) => {
-        this.setState({errors : errors});
-    }
-
-    handleErrorsChange = () => {
-        let listErrors = this.state.errors;
-        return listErrors;
-    }
-
-    handleEdit = (id) => {
-        let movie = movieService.getOne(id);
-
-        this.setState({ 
-            movieEdit: movie 
-        },() => {document.getElementById("openModal").style.display = "block"})
-    }
-
-    handleDelete = (id) => {
-        movieService.delete(id);
-        this.setState((state) => ({ movieList: movieService.getAll() }));
-    }
 
     closeModal = () => {
         document.getElementById("openModal").style.display = "none";
-        this.setState((state) => ({ movieList: movieService.getAll() }));
     }
 
     render() {
         return (
             <div>
-                <CustomErrors errors={this.handleErrorsChange}></CustomErrors>
+                <CustomErrors errors={this.state.errors}></CustomErrors>
 
-                <CustomForm 
-                onAddMovie={this.handleAddMovie} 
-                onErrors={this.handleErrors}>
-                </CustomForm>
+                <CustomForm></CustomForm>
 
-                <ListMovies 
-                movieList={this.handleMovieChange} 
-                onEdit={this.handleEdit} 
-                onDelete={this.handleDelete}>
-                </ListMovies>
+                <ListMovies></ListMovies>
 
                 <div id="openModal" className="modalDialog">
                     <div>
@@ -84,8 +47,6 @@ class HeadMovies extends Component {
                         <h2>Editar</h2>
                         
                         <CustomForm 
-                        onAddMovie={this.handleAddMovie} 
-                        onErrors={this.handleErrors}
                         onCloseModal={this.closeModal}
 
                         title={this.state.movieEdit.title}

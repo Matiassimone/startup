@@ -5,10 +5,15 @@ import './App.css';
 import HeadMovies from './components/HeadMovies';
 import './grid.css';
 
+import Store from './Store';
+import {loadMovies} from  './ActionCreators';
+Store.dispatch(loadMovies());
+
 class App extends Component {
   render() {
     return (
     <main className="App">
+    
           <header className="App-header">
             <h1>Topic 4 - React</h1>
             <img src={logo} className="App-logo" alt="logo" />

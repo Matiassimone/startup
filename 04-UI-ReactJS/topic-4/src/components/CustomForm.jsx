@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './customForm.css';
 import movieService from '../services/movieService';
 
+import Store from '../Store';
+import {addMovie, errorForm, endEditMovie, loadMovies} from  '../ActionCreators';
+
 class CustomForm extends Component {
 
     handleSubmit = (event) => {
@@ -22,13 +25,13 @@ class CustomForm extends Component {
                 errorsList.push("La fecha todavia no se ah estrenado!");
             }
 
-            this.props.onErrors(errorsList);  
+            Store.dispatch(errorForm(errorsList)); 
 
         } else {
 
             let ID = 0;
 
-            if (this.props.id) {
+            if (this.props.title) {
                 ID = this.props.id;
 
                 let movie = {
@@ -37,40 +40,20 @@ class CustomForm extends Component {
                     duration: this.duration.value,
                     id: ID
                 }
-
-                movieService.change(movie);
-                this.props.onCloseModal();
+                
+                Store.dispatch(endEditMovie(movie));
+                Store.dispatch(loadMovies());
                 
             } else {
                 ID = movieService.nextId();
-            
-                movieService.save(this.title.value, this.year.value, this.duration.value, ID);
                 let movie = {title: this.title.value, year: this.year.value, duration: this.duration.value, id: ID};
                   
-                this.props.onAddMovie(movie);
+                Store.dispatch(addMovie(movie));
             }
 
-            this.props.onErrors(errorsList);
             document.getElementById("formMovie").reset();
+            Store.dispatch(errorForm([]));
         }
-    }
-
-    handleInputNumberChange = (event) => {
-        if (event.target.name === "year") {
-            this.setState({
-                year: event.target.value
-            });
-        } else {
-            this.setState({
-                duration: event.target.value
-            });
-        }
-    }
-
-    handleInputTextChange = (event) => {
-        this.setState({
-            title: event.target.value
-        });
     }
 
     render() {

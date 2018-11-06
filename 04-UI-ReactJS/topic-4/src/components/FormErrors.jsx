@@ -4,7 +4,7 @@ import './customErrors.css';
 class FormErrors extends Component {
 
     createErrorsList = () => {
-        let errorsList = this.props.errors();
+        let errorsList = this.props.errors;
         let list = []
 
         errorsList.forEach(element => {

@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import Movie from './Movie';
 
+import {connect} from 'react-redux';
+
 class ListMovies extends Component {
 
-    handleEdit = (id) => {
-        this.props.onEdit(id);
-    }
-
-    handleDelete = (id) => {
-        this.props.onDelete(id);
-    }
-
     createList = () => {
-        let movieList = this.props.movieList();
+
+        let movieList = this.props.movieList;
         let list = []
 
         movieList.forEach(element => {
@@ -22,9 +17,7 @@ class ListMovies extends Component {
                 year={element.year} 
                 duration={element.duration} 
                 id={element.id} 
-                key={element.id}
-                onEdit={this.handleEdit}
-                onDelete={this.handleDelete}>
+                key={element.id}>
                 </Movie>);
         }) 
         return list;
@@ -39,4 +32,10 @@ class ListMovies extends Component {
     }
 }
 
-export default ListMovies;
+const mapStateToProps = state => {
+    return {
+        movieList: state.movieList
+    };
+};
+
+export default connect(mapStateToProps)(ListMovies);
