@@ -1,0 +1,65 @@
+.card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 20px;
+}
+
+.text {
+    background: #FCFCFB;
+    padding: 10px;
+    min-height: 200px;
+    color: #0D1B2A;
+}
+
+.fabDel {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, .3);
+    color: #fff;
+    font-size: 20px;
+    line-height: 48px;
+    text-align: center;
+    background: #0066A2;
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+
+    margin-top: -40px;
+    margin-left: 130px;
+    position: absolute;
+}
+
+.fabEdit {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, .3);
+    color: #fff;
+    font-size: 20px;
+    line-height: 48px;
+    text-align: center;
+    background: #0066A2;
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+    
+    margin-top: -40px;
+    margin-left: 65px;
+    position: absolute;
+}
+
+.fabDel:hover {
+    background: rgb(157, 60, 60);
+    cursor: pointer;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.fabEdit:hover {
+    background: rgb(60, 157, 60);
+    cursor: pointer;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
