@@ -28,6 +28,13 @@ export default {
     this.saveAll(movies);
   },
 
+  getOne(id) {
+    let movies = this.getAll();
+    let movie = movies.find(movie => movie.id === id);
+
+    return movie;
+  },
+
   nextId() {
     let movies = this.getAll();
     let idx = 0;
