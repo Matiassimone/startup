@@ -16,10 +16,32 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    smallText: {
+        padding: 5,
+        fontSize: 15,
+        color: 'black',
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 
     exerciseContainer: {
         flex: 1,
         alignContent: 'flex-start',
+    },
+    exerciseContainerBetweenRow: {
+        flexDirection: 'row',
+        flex: 1,
+        alignContent: 'flex-start',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start'
+    },
+    exerciseContainerBetweenColumn: {
+        flexDirection: 'column',
+        flex: 1,
+        alignContent: 'flex-start',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start'
     },
 
     smallBox: {
@@ -38,6 +60,11 @@ export default StyleSheet.create({
         flex: 1,
         width: 200,
         height: 200,
+        margin: 10
+    },
+    xsmallBox: {
+        width: 25,
+        height: 25,
         margin: 10
     },
 
