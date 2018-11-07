@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image} from 'react-native';
-import styles from './ScreenTwo.style.android.js';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import styles from './ScreenTwo.style.js';
 
 
 export default class ScreenTopicTwo extends React.Component {

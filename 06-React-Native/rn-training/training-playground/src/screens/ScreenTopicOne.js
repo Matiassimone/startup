@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image} from 'react-native';
-import styles from './ScreenOne.style.android.js';
+import styles from './ScreenOne.style.js';
 
 
 export default class ScreenTopicOne extends React.Component {
@@ -34,7 +34,7 @@ export default class ScreenTopicOne extends React.Component {
               </View>
           </ScrollView>
         </View>
-        
+
     );
   }
 }
