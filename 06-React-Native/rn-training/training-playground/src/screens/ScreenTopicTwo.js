@@ -35,12 +35,23 @@ export default class ScreenTopicTwo extends React.Component {
 
               <Text style={[styles.text]}>Ex.3.2</Text>
               <Text style={[styles.smallText]}>In a device without others exercises, the prop 
-              (justifyContent: 'space-between') takes the width of the screen</Text>
+              (justifyContent: 'space-between') takes the width of the screen.</Text>
 
               <View style={[styles.exerciseContainerBetweenRowColumn]}>
                 <View style={[styles.smallBox, styles.colorRedOrange]} />
                 <View style={[styles.smallBox, styles.colorDarkPurple]} />
                 <View style={[styles.smallBox, styles.colorWrite]} />
+              </View>
+
+              <Text style={[styles.text]}>Ex.4</Text>
+
+              <Text style={[styles.smallText]}>In a device without others exercises, the prop 
+              (flexGrow: 50/30/20) takes the 50%, 30%, 20% width of the screen respectively.</Text>
+
+              <View style={[styles.exerciseContainerSmall]}>
+                <View style={[styles.box50, styles.colorRedOrange]}/>
+                <View style={[styles.box30, styles.colorDarkPurple]}/>
+                <View style={[styles.box20, styles.colorWrite]}/>
               </View>
 
           </ScrollView>

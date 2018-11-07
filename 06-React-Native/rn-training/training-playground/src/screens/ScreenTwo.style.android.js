@@ -43,6 +43,11 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'flex-start'
     },
+    exerciseContainerSmall: {
+        flex: 1,
+        width: 500,
+        height: 500
+    },
 
     smallBox: {
         flex: 1,
@@ -66,6 +71,21 @@ export default StyleSheet.create({
         width: 25,
         height: 25,
         margin: 10
+    },
+    box50: {
+        flex: 1,
+        width: 50,
+        flexGrow: 50
+    },
+    box30: {
+        flex: 1,
+        width: 50,
+        flexGrow: 30
+    },
+    box20: {
+        flex: 1,
+        width: 50,
+        flexGrow: 20
     },
 
     colorRedOrange: {
