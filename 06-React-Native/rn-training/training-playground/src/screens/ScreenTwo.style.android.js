@@ -87,6 +87,15 @@ export default StyleSheet.create({
         width: 50,
         flexGrow: 20
     },
+    boxSelfStart: {
+        alignSelf: 'flex-start'
+    },
+    boxSelfCenter: {
+        alignSelf: 'center'
+    },
+    boxSelfEnd: {
+        alignSelf: 'flex-end'
+    },
 
     colorRedOrange: {
         backgroundColor: '#F44336'
