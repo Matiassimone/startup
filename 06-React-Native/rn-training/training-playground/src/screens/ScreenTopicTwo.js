@@ -17,7 +17,13 @@ export default class ScreenTopicTwo extends React.Component {
                 <View style={[styles.bigBox, styles.colorWrite]} />
               </View>
 
-              <Text style={[styles.text]}></Text>
+              <Text style={[styles.text]}>Ex.2</Text>
+
+              <View style={[styles.exerciseContainer]}>
+                <View style={[styles.smallBox, styles.colorRedOrange, styles.borderRadius]} />
+                <View style={[styles.mediumBox, styles.colorDarkPurple, styles.borderRadius]} />
+                <View style={[styles.bigBox, styles.colorWrite, styles.borderRadius]} />
+              </View>
 
 
           </ScrollView>

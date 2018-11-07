@@ -49,6 +49,10 @@ export default StyleSheet.create({
     },
     colorWrite: {
         backgroundColor: '#FFFFFF'
+    },
+
+    borderRadius: {
+        borderRadius: 10
     }
   });
   
