@@ -97,6 +97,7 @@ export default StyleSheet.create({
         alignSelf: 'flex-start'
     },
     boxSelfCenter: {
+        justifyContent: 'space-between',
         alignSelf: 'center'
     },
     boxSelfEnd: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ScrollView} from 'react-native';
+import {View, ScrollView, ActivityIndicator} from 'react-native';
 import styles from './screenPost.style.js';
 import SingleArticle from '../components/SingleArticle';
 
@@ -54,11 +54,12 @@ export default class ScreenPost extends React.Component {
 
         return (
             <View style={styles.container}>
-            <ScrollView>
+                <ScrollView>
 
-                {this.handlePosts()}
+                    <ActivityIndicator size="large" color="#5CBAA2" animating={this.state.isLoading}></ActivityIndicator>
+                    {this.handlePosts()}
 
-            </ScrollView>
+                </ScrollView>
             </View>
         );
     }
