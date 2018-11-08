@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, View, ScrollView, AppRegistry, TextInput, TouchableOpacity} from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import styles from './screenThree.style.js';
+import AppTextInput from '../components/AppTextInput';
 
 
-export default class ScreenTopicTwo extends React.Component {
+export default class ScreenTopicThree extends React.Component {
 
   constructor(props) {
     super(props);
@@ -19,31 +20,25 @@ export default class ScreenTopicTwo extends React.Component {
     })
   }
 
-  clearText = () => {
-    this.textInput.clear();
-  }
-
   render() {
     return (
         <View style={styles.container}>
           <ScrollView>
-              <Text style={[styles.text]}>Ex 1, 2.</Text>
+              <Text style={[styles.text]}>Ex 1, 2, 3.</Text>
               <View style={[styles.exerciseContainer]}>
 
-                <TextInput
-                  ref={input => {this.textInput = input}}
-                  style={[styles.inputText]}
-                  placeholder="Type Here!"
-                  onChangeText={(text) => this.writeText({text})}>
-                </TextInput>
+                <AppTextInput 
+                  writeText={this.writeText}
+                  password={true}
+                  ref='del'{...this.porps}>
+                </AppTextInput>
 
                 <View style={[styles.smallBotton, styles.touchable]}>
                   <TouchableOpacity 
-                    onPress={() => this.clearText()}>
+                    onPress={() => this.refs.del.clearText()}>
                     <Text>Clear</Text>
                   </TouchableOpacity>
                 </View>
-
               </View>
           </ScrollView>
         </View>
@@ -51,3 +46,4 @@ export default class ScreenTopicTwo extends React.Component {
     );
   }
 }
+
