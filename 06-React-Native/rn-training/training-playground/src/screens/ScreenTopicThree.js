@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import styles from './screenThree.style.js';
 import AppTextInput from '../components/AppTextInput';
+import AppTouchableOpacity from '../components/AppTouchableOpacity';
 
 
 export default class ScreenTopicThree extends React.Component {
@@ -20,11 +21,15 @@ export default class ScreenTopicThree extends React.Component {
     })
   }
 
+  clearText = () => {
+    this.refs.del.clearText()
+  }
+
   render() {
     return (
         <View style={styles.container}>
           <ScrollView>
-              <Text style={[styles.text]}>Ex 1, 2, 3.</Text>
+              <Text style={[styles.text]}>Ex 1, 2, 3, 4.</Text>
               <View style={[styles.exerciseContainer]}>
 
                 <AppTextInput 
@@ -33,12 +38,10 @@ export default class ScreenTopicThree extends React.Component {
                   ref='del'{...this.porps}>
                 </AppTextInput>
 
-                <View style={[styles.smallBotton, styles.touchable]}>
-                  <TouchableOpacity 
-                    onPress={() => this.refs.del.clearText()}>
-                    <Text>Clear</Text>
-                  </TouchableOpacity>
-                </View>
+                <AppTouchableOpacity title="CONTINUE" styleTouchable="primary" clearText={this.clearText}></AppTouchableOpacity>
+                <AppTouchableOpacity title="SIGN UP" styleTouchable="secondary" clearText={this.clearText}></AppTouchableOpacity>
+                <AppTouchableOpacity title="CONTINUE" disabled={true} clearText={this.clearText}></AppTouchableOpacity>
+
               </View>
           </ScrollView>
         </View>

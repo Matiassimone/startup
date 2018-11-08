@@ -15,16 +15,13 @@ class AppTextInput extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <View style={[styles.exerciseContainer]}>
-                    <TextInput
-                        ref={input => {this.textInput = input}}
-                        style={[styles.inputText]}
-                        placeholder="Type Here!"
-                        onChangeText={(text) => this.props.writeText({text})}
-                        secureTextEntry={this.props.password}>
-                    </TextInput>
-                    
-                </View>
+                <TextInput
+                    ref={input => {this.textInput = input}}
+                    style={[styles.inputText]}
+                    placeholder="Type Here!"
+                    onChangeText={(text) => this.props.writeText({text})}
+                    secureTextEntry={this.props.password}>
+                </TextInput>
             </View>
         );
     }
