@@ -5,7 +5,6 @@ export default StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'column',
-      justifyContent: 'center',
       ...Platform.select({
             ios: {
             backgroundColor: 'grey',

@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import { Text, View, ScrollView} from 'react-native';
 import styles from './ScreenTwo.style.js';
+import SingleArticle from '../components/SingleArticle';
 
 
 export default class ScreenTopicTwo extends React.Component {
@@ -64,6 +65,17 @@ export default class ScreenTopicTwo extends React.Component {
                 <View style={[styles.mediumBox, styles.colorDarkPurple, styles.boxSelfCenter]} />
                 <View style={[styles.mediumBox, styles.colorWrite, styles.boxSelfEnd]} />
               </View>
+
+              <Text style={[styles.text]}>Ex.7</Text>
+
+              <SingleArticle title="Mi Primer Articulo" quote="Matias Simone" 
+
+              article="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Nullam et tortor in lorem vestibulum egestas nec sit amet metus. Vestibulum dictum dictum dui,
+                vel condimentum magna ultrices ac. Vivamus sit amet nisl at erat placerat efficitur vitae in est.
+                Quisque blandit sit amet mauris a pretium. Duis ut mauris at diam euismod gravida." 
+
+              imagePost="https://es.calcuworld.com/wp-content/uploads/sites/2/2016/02/lorem-ipsum-150x150.png"></SingleArticle>
 
           </ScrollView>
         </View>
