@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, ScrollView, Image} from 'react-native';
-import styles from './ScreenOne.style.js';
+import styles from './screenOne.style.js';
 
 
 export default class ScreenTopicOne extends React.Component {

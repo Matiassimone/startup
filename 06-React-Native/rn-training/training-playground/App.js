@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from 'react-navigation'
 
 import ScreenTopicOne from './src/screens/ScreenTopicOne';
 import ScreenTopicTwo from './src/screens/ScreenTopicTwo';
+import ScreenTopicThree from './src/screens/ScreenTopicThree';
 
 export default class App extends React.Component {
   render() {
@@ -28,6 +29,13 @@ const AppTabNavigator = createMaterialTopTabNavigator ({
     screen: ScreenTopicTwo,
     navigationOptions: {
       tabBarLabel: 'Topic Two'
+    }
+  },
+
+  TopicThree: {
+    screen: ScreenTopicThree,
+    navigationOptions: {
+      tabBarLabel: 'Topic Three'
     }
   }
 
