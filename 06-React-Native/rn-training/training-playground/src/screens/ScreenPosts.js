@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, ScrollView, ActivityIndicator} from 'react-native';
-import styles from './screenPost.style.js';
+import styles from './screenPosts.style.js';
 import SingleArticle from '../components/SingleArticle';
 
 
-export default class ScreenPost extends React.Component {
+export default class ScreenPosts extends React.Component {
 
     constructor(props) {
         super(props);

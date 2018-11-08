@@ -1,63 +1,24 @@
-import React from 'react';
-import { SafeAreaView} from 'react-native';
-import { createMaterialTopTabNavigator } from 'react-navigation'
+import { createDrawerNavigator } from 'react-navigation';
 
-import ScreenTopicOne from './src/screens/ScreenTopicOne';
-import ScreenTopicTwo from './src/screens/ScreenTopicTwo';
-import ScreenTopicThree from './src/screens/ScreenTopicThree';
-import ScreenPost from './src/screens/ScreenPost';
+//NavigationDarner
+import initialTopicsTopNavigator from './InitialTopicsNavigator';
+import ScreenPosts from './src/screens/ScreenPosts';
+import ScreenOnePost from './src/screens/ScreenOnePost';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <SafeAreaView style={{ flex: 1}}>
-        <AppTabNavigator></AppTabNavigator>
-      </SafeAreaView>
-    );
-  }
-}
 
-const AppTabNavigator = createMaterialTopTabNavigator ({
+const AppDarnerNavigator = createDrawerNavigator ({
 
-  TopicOne: {
-    screen: ScreenTopicOne,
-    navigationOptions: {
-      tabBarLabel: 'Topic One'
-    }
+  InitialTopics: {
+    screen: initialTopicsTopNavigator,
   },
-
-  TopicTwo: {
-    screen: ScreenTopicTwo,
-    navigationOptions: {
-      tabBarLabel: 'Topic Two'
-    }
+  Posts: {
+    screen: ScreenPosts,
   },
-
-  TopicThree: {
-    screen: ScreenTopicThree,
-    navigationOptions: {
-      tabBarLabel: 'Topic Three'
-    }
-  },
-
   Post: {
-    screen: ScreenPost,
-    navigationOptions: {
-      tabBarLabel: 'Post'
-    }
+    screen: ScreenOnePost,
   }
-
-},{
-
-  initialRouteName: 'TopicOne',
-  tabBarOptions: {
-    activeTintColor: '#FF1654',
-    inactiveTintColor: 'grey',
-    style: {
-      backgroundColor: '#f2f2f2'
-    },
-    indicatorStyle: {
-      height: 0
-    }
-  }
+}, {
+    initialRouteName: 'InitialTopics',
 });
+
+export default AppDarnerNavigator;
