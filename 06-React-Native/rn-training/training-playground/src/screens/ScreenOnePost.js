@@ -86,8 +86,8 @@ export default class ScreenOnePost extends React.Component {
                     {show}
                     {userInfo}
                     <ActivityIndicator size="large" color="#5CBAA2" style={[styles.centerOfTheScreenRow]} animating={this.state.isLoading}></ActivityIndicator>
-                    <Button onPress={() => this.props.navigation.navigate('Posts')} title="Go to Posts"></Button>
                 </ScrollView>
+                <Button onPress={() => this.props.navigation.navigate('Posts')} title="Go to Posts" style={[styles.button]}></Button>
             </View>
         );
     }
