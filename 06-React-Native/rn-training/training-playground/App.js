@@ -2,9 +2,10 @@ import { createDrawerNavigator } from 'react-navigation';
 
 //NavigationDarner
 import initialTopicsTopNavigator from './InitialTopicsNavigator';
+import cameraFectureNavigator from './CameraFectureNavigator';
 import ScreenPosts from './src/screens/ScreenPosts';
 import ScreenOnePost from './src/screens/ScreenOnePost';
-import ScreenCamera from './src/screens/ScreenCamera'
+
 
 
 const AppDarnerNavigator = createDrawerNavigator ({
@@ -19,7 +20,7 @@ const AppDarnerNavigator = createDrawerNavigator ({
     screen: ScreenOnePost,
   },
   Camera: {
-    screen: ScreenCamera,
+    screen: cameraFectureNavigator,
   }
 }, {
     initialRouteName: 'InitialTopics',
